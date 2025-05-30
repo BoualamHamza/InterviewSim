@@ -1,62 +1,112 @@
-# InterviewSim
-## Job Interview Simulator
+# 🗣️ AI Interview Simulator
 
-This Python code simulates a job interview for backend development using speech recognition and natural language processing.
-This is just a first version the code was written while feeling a bit drunk so you know what to do , also I am Fine-tunning the Mistral 7b LLM model to addapt to any type of job with some web scraping . The goal ---> the model can learn byitself about the company and positin that you are applying too and simulate a real human like interview. That's it Ciao 
+## 🚀 Project Overview
 
+**AI Interview Simulator** is a web-based platform that helps job applicants practice for real interviews by simulating voice-based conversations with an AI interviewer.
 
- ### Requirements
-- Python 3.x
-- It is recommended to use a Python virtual environment.
-
-### Setup
-1. Create a virtual environment (optional but recommended):
-    ```bash
-    python -m venv venv
-    ```
-2. Activate the virtual environment:
-    - On Windows:
-        ```bash
-        venv\Scripts\activate
-        ```
-    - On macOS and Linux:
-        ```bash
-        source venv/bin/activate
-        ```
-3. Install the required libraries:
-    ```bash
-    pip install -r requirements.txt
-    ```
-
-### Usage
-1. Replace `'your ApiKey goes here'` with your OpenAI API key.
-2. Run the code.
-3. The program will listen for your responses, simulate an interview, and respond accordingly.
-
-### Features
-- Simulates a job interview for backend development.
-- Utilizes Google's Speech Recognition API to recognize user's speech.
-- Uses OpenAI's GPT-3.5 model to generate responses.
-- Generates synthesized speech using Google Text-to-Speech (gTTS).
-- Plays the synthesized speech using the `playsound` module.
-
-### How it works
-1. The program listens to the user's speech using the microphone.
-2. Recognizes the speech and sends it to the OpenAI API.
-3. Generates a response using the GPT-3.5 model.
-4. Synthesizes the response into speech using gTTS.
-5. Plays the synthesized speech.
-
-### Note
-- Make sure to replace `'your ApiKey goes here'` with your actual OpenAI API key.
-- Adjust the `model` parameter in the `respond()` function if needed.
-
-### Example
-```bash
-python job_interview_simulator.py
-```
-The program will start listening for your responses.
+Users can submit a job description (by link or by pasting text), choose the type of interviewer (HR or Technical Manager), and begin a **voice-driven** mock interview powered by **large language models (LLMs)**.
 
 ---
 
-**Note:** This is a basic version. More features are planned once the finetuning of Mistral 7B is completed.
+## 🎯 Key Features (MVP)
+
+* **🎤 Voice-Based Interaction**
+  Users speak their answers and hear the AI's questions via speech-to-text and text-to-speech integration.
+
+* **📄 Job Description Input**
+  Input the job description by pasting text or providing a URL to the job post (we'll extract and parse the content).
+
+* **🧑‍💼 Interviewer Role Selection**
+  Choose the role of the AI interviewer:
+
+  * HR Interviewer (focus: behavioral, soft skills, background)
+  * Technical Manager (focus: coding, systems, technical depth)
+
+* **🧠 AI-Powered Conversations**
+  Conversations are powered by LLMs like OpenAI GPT-4 or Claude, with context taken from the job description.
+
+---
+
+## 🏗️ Tech Stack (Planned)
+
+| Layer             | Tech Used                                     |
+| ----------------- | --------------------------------------------- |
+| **Frontend**      | React + TypeScript                            |
+| **Voice I/O**     | Web Speech API / Whisper API / ElevenLabs     |
+| **Backend**       | Python (FastAPI or Flask)                     |
+| **LLM**           | OpenAI GPT-4 / Claude / Local LLMs via Ollama |
+| **Communication** | WebSockets for real-time interaction          |
+| **Database**      | SQLite (MVP) or PostgreSQL                    |
+
+---
+
+## 🎤 MVP Workflow
+
+1. **User provides job description**
+
+   * Paste job post OR
+   * Paste a link (we scrape content)
+2. **User selects AI interviewer type**
+
+   * HR or Technical
+3. **Interview begins**
+
+   * AI greets user and starts asking questions (via voice)
+   * User responds by speaking
+   * AI uses LLM to generate follow-ups in real-time
+4. **Session ends**
+
+   * Optional: Summary of strengths/weaknesses (basic feedback)
+
+---
+
+## 🧩 Implementation Plan
+
+### ✅ Phase 1 – Core MVP (Voice Interview)
+
+* [ ] Input:
+
+  * [ ] Job description: paste or fetch via link
+  * [ ] Role selection (HR vs Technical)
+* [ ] Voice Interaction:
+
+  * [ ] Speech-to-text (User to AI)
+  * [ ] Text-to-speech (AI to User)
+* [ ] LLM Integration:
+
+  * [ ] Pass job post + role context to LLM
+  * [ ] Generate dynamic questions
+* [ ] Real-time UI:
+
+  * [ ] Display both voice and text messages
+* [ ] Basic Feedback:
+
+  * [ ] End-of-session summary
+
+---
+
+## 🧪 Stretch Goals (Post-MVP)
+
+* Feedback scoring and dashboards
+* Support for multiple languages
+* Recordings and transcripts
+* User login & history tracking
+* Live coding or system design mode
+
+---
+
+## 🛠 Setup (coming soon)
+
+Instructions for local development, LLM API setup, and voice libraries will be added once the scaffolding is ready.
+
+---
+
+## 🤝 Contributing
+
+We welcome collaborators! Stay tuned for open issues and contribution guidelines.
+
+---
+
+## 📜 License
+
+MIT License
