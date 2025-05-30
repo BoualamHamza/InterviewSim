@@ -1,0 +1,315 @@
+/* Reset basic styles */
+body, h1, h2, h3, h4, p, button, textarea, input, label, div {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.App {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f4f7f6; 
+}
+
+.App-header {
+  background-color: #2c3e50; 
+  padding: 15px 20px;
+  color: white;
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.App-header h1 {
+  font-size: 1.6em; /* Slightly smaller */
+}
+
+.controls-container {
+  display: flex;
+  align-items: center;
+}
+
+.tts-toggle {
+  font-size: 0.9em;
+  margin-right: 15px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.tts-toggle input {
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.ws-status {
+  font-size: 0.8em;
+  padding: 6px 10px; /* Adjusted padding */
+  border-radius: 12px; /* Pill shape */
+  color: white;
+  font-weight: 500;
+}
+.ws-status-disconnected { background-color: #e74c3c; } /* Red */
+.ws-status-connecting { background-color: #f39c12; } /* Orange */
+.ws-status-connected { background-color: #2ecc71; } /* Green */
+.ws-status-error { background-color: #c0392b; } /* Darker Red */
+
+
+.App-main {
+  flex-grow: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.config-section, .interview-section, .feedback-section {
+  width: 100%;
+  max-width: 700px; 
+  margin-bottom: 30px;
+  padding: 25px; 
+  border-radius: 8px;
+  background-color: #ffffff; 
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); 
+}
+
+.config-section h2, .interview-section h3, .feedback-section h2 { 
+  margin-bottom: 25px;
+  color: #2c3e50; 
+}
+
+.interview-header {
+  text-align: left;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ecf0f1; 
+}
+.interview-header h3 {
+  margin-bottom: 5px;
+}
+.session-id {
+  font-size: 0.8em;
+  color: #7f8c8d; 
+}
+
+
+.job-description-input {
+  margin-bottom: 20px;
+  padding: 20px;
+  border: 1px solid #ecf0f1; 
+  border-radius: 5px;
+  background-color: #fdfdfd; 
+}
+
+.job-description-input h3, .role-selection h3, .chat-display h3, .voice-controls h3 {
+  margin-bottom: 15px; 
+  color: #34495e; 
+  text-align: left;
+}
+
+.job-description-input textarea,
+.job-description-input input[type="text"] {
+  width: 100%; 
+  padding: 10px; 
+  margin-bottom: 10px;
+  border: 1px solid #bdc3c7; 
+  border-radius: 4px;
+  font-size: 1em;
+}
+
+.job-description-input p { 
+  margin: 15px 0;
+  font-weight: bold;
+  color: #7f8c8d;
+}
+
+.role-selection {
+  margin-bottom: 25px; 
+  padding: 20px;
+  border: 1px solid #ecf0f1;
+  border-radius: 5px;
+  background-color: #fdfdfd;
+}
+
+.role-selection div {
+  margin-bottom: 8px;
+  text-align: left;
+  padding-left: 10px; 
+}
+
+.role-selection label {
+  cursor: pointer;
+  color: #34495e;
+}
+
+.role-selection input[type="radio"] {
+  margin-right: 10px;
+  transform: scale(1.1); 
+}
+
+button {
+  color: white;
+  padding: 10px 18px; 
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em; 
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+button:hover {
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  filter: brightness(1.1); /* Slightly brighten on hover */
+}
+button:disabled {
+  background-color: #bdc3c7 !important; /* Important to override specific button colors */
+  color: #7f8c8d !important;
+  cursor: not-allowed;
+  box-shadow: none;
+  filter: none;
+}
+
+.start-interview-btn {
+  background-color: #27ae60; 
+  margin-top: 10px; 
+}
+
+.end-interview-btn {
+  background-color: #e74c3c; /* Red for end/cancel actions */
+  margin-top: 20px;
+}
+
+
+.chat-display {
+  margin-bottom: 20px;
+  padding: 0; 
+  border: none;
+  background-color: transparent; 
+}
+.chat-display h3 {
+  display: none; 
+}
+
+.message-list {
+  background-color: #ffffff; 
+  min-height: 200px; 
+  max-height: 400px; 
+  overflow-y: auto;
+  padding: 15px;
+  border: 1px solid #ecf0f1;
+  border-radius: 5px;
+  text-align: left;
+}
+
+.message {
+  margin-bottom: 12px; 
+  padding: 10px 15px; 
+  border-radius: 18px; 
+  line-height: 1.4;
+  word-wrap: break-word; 
+}
+
+.message.ai {
+  background-color: #eaf2f8; 
+  color: #2c3e50;
+  margin-right: auto; 
+  max-width: 85%; 
+  border-bottom-left-radius: 4px; 
+}
+
+.message.you {
+  background-color: #e8f6f3; 
+  color: #16a085;
+  margin-left: auto; 
+  max-width: 85%;
+  border-bottom-right-radius: 4px; 
+}
+
+.message p { margin: 0; }
+.message strong { 
+  display: block;
+  font-size: 0.9em;
+  margin-bottom: 3px;
+  color: inherit; 
+  opacity: 0.8;
+}
+.message span { 
+  display: block;
+  text-align: right;
+  font-size: 0.7em; 
+  color: #7f8c8d; 
+  margin-top: 5px;
+}
+
+.voice-controls {
+  margin-top: 15px; 
+  padding: 20px;
+  border: 1px solid #ecf0f1;
+  border-radius: 5px;
+  background-color: #fdfdfd;
+}
+.voice-controls h3 { text-align: center; }
+
+.voice-controls button {
+  background-color: #3498db; 
+}
+.voice-controls button:disabled {
+  background-color: #bdc3c7 !important; /* Ensure disabled style overrides */
+}
+
+
+.voice-controls p { 
+  color: #555; 
+  margin-top: 10px; 
+  font-style: italic;
+  min-height: 1.2em; 
+}
+
+.stt-error {
+    color: #c0392b; 
+    font-size: 0.9em;
+    margin-top: 10px;
+    padding: 8px;
+    border: 1px dashed #c0392b;
+    border-radius: 4px;
+    background-color: #fbecec;
+}
+
+.feedback-section {
+  /* Styles for feedback section container, if any, beyond the common section style */
+}
+.feedback-section .feedback-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  border: 1px solid #e0e0e0;
+  margin-bottom: 20px;
+}
+.feedback-section h2 {
+  text-align: center;
+}
+.feedback-section h4 { /* For "Strengths:", "Areas for Improvement:" */
+  margin-top: 15px;
+  margin-bottom: 8px;
+  color: #2c3e50;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #eee;
+}
+
+
+.App-footer {
+  background-color: #ecf0f1; 
+  padding: 15px;
+  text-align: center;
+  font-size: 0.9em;
+  color: #7f8c8d; 
+  border-top: 1px solid #bdc3c7; 
+  margin-top: auto; 
+}
